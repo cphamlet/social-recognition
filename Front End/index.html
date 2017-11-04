@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Criminal Recognition</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body>
+		<!-- Wrapper-->
+		<div id="wrapper">
+			<header id="header">
+				<!--
+					<div class="logo">
+						<span class="icon fa-diamond"></span>
+					</div>
+				-->
+				<div class="content">
+					<div class="inner">
+						<h1>Criminal Recognition</h1>
+						<p>
+							A service for detecting criminals using public social media accounts and facial recognition.
+						</p>
+					</div>
+				</div>
+			</header>
+
+			<div id="main">
+				<form class="box" method="post" action="" enctype="multipart/form-data">
+					<div class="box__input">
+						<svg class="box__icon" width="50" height="43" viewBox="0 0 50 43" src="../images/upload icon.svg"></svg>
+					    <input class="box__file" type="file" name="files[]" id="file" data-multiple-caption="{count} files selected" multiple />
+					    <label for="file"><strong>Choose a file</strong><span class="box__dragndrop"> or drag it here</span>.</label>
+					    <button class="box__button" type="submit">Upload</button>
+					</div>
+					<div class="box__uploading">Uploading&hellip;</div>
+					<div class="box__success">Done!</div>
+					<div class="box__error">Error! <span></span>.</div>
+				</form>
+			</div>
+		</div>
+
+		<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery-3.2.1.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
