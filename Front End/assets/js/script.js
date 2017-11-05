@@ -14,6 +14,7 @@ String.prototype.format = function() {
 
 
 function sendResults(resultsObj) {
+	console.log("THIS RAN");
 	for (var i = 0; i <= resultsObj.length; i++){
 		console.log(resultsObj[i]);
 	}
