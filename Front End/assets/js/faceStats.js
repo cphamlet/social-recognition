@@ -85,17 +85,12 @@ $(document).on('change', '#file', function()
                     {
                         
                         // Show formatted JSON on webpage.
-                        
-                        
-                        console.log(data[0]['faceAttributes'].gender);
-                        
-                       
-                    
-                
-
+                        console.log(data[0]);
 
 
                         $("#sex").text(data[0]['faceAttributes'].gender);
+                        $("#age").text(data[0]['faceAttributes'].age);
+                        $("#glasses").text(data[0]['glasses']);
                         
                         
 
