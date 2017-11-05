@@ -94,7 +94,7 @@ $(document).on('change', '#file', function()
                         }
 
                       
-                        $("#sex").text(jsUCfirst(data[0]['faceAttributes'].gender));
+                        $("#sex").text(jsUcfirst(data[0]['faceAttributes'].gender));
                         $("#age").text(data[0]['faceAttributes'].age);
                         $("#glasses").text(data[0]['faceAttributes'].glasses);
                         
