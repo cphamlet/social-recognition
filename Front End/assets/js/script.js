@@ -4,13 +4,18 @@ var resultsList;
 function processPics(responseText){
 	var picsList = JSON.parse(responseText);
 	console.log(picsList)
+	updateResults()
 	// for (var i = 0; i <= 50; i++){
 	// 	resultsList.append(picsList[i]);
 	// }
 }
 
-function update_results(){
-	null
+function updateResults() {
+	_removeInput()
+}
+
+function _removeInput() {
+	$(".box").remove();
 }
 
 function upload() {
