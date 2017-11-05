@@ -19,3 +19,4 @@ sudo apt install python3-pip -y
 pip3 install face_recognition
 cd ..
 git clone https://github.com/ageitgey/face_recognition.git
+sudo pip3 install flask
