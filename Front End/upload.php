@@ -13,6 +13,6 @@ if($_FILES['file']['name'] != '')
     $arr['location'] = $location;
     $arr['name'] = $name;
 
-    echo json_encode($data);
+    echo json_encode($arr);
     
 }
