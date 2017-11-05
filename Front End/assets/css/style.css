@@ -1453,7 +1453,7 @@
 	.box:hover {
 		background-color: rgba(256, 256, 256, .2);
 		outline-offset: 0px;
-		outline: 0px dashed white;
+		outline: 0px dashed rgba(256, 256, 256, 0);
 	}
 	.input-text {
 		margin: 10;
