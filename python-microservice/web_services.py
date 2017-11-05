@@ -98,7 +98,7 @@ def detect_faces_in_image(file_stream):
             #if match_results[0]:
             #    is_obama = True
            # if face_distances < 0.6:
-            print("Distance:" + str(face_distances))
+            print("Distance: " + str(face_distances[0]))
                 #listMatches.append({"fileName": photo, "score":face_distances})
 
             listMatches.append({"fileName": encoded_obj["fileName"], "score":face_distances})
@@ -132,10 +132,10 @@ def detect_faces_in_image(file_stream):
             link = names_info[match["fileName"]]["link"]
         print("match: " +full_name + " "+str(match["score"]))
         result["results"].append({"pic_url": 
-        "/known-pics/"+match["fileName"],
+        "/python-microservice/known-pics/"+match["fileName"],
         #Below gets the name using the filename in names.json
         "name": full_name,
-        "score": str(match["score"]),
+        "score": str(match["score"][0]),
         "link": link
         })
     print("Results:\n")
