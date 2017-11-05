@@ -85,10 +85,11 @@ $(document).on('change', '#file', function()
                     {
                         
                         // Show formatted JSON on webpage.
-                        var results = JSON.stringify(data);
+                        var results = JSON.parse(data);
+                        console.log(results[0]);
                         console.log(results[0].gender);
                         console.log(results[0]['gender']);
-                        console.log(results[0][gender]);
+                
 
 
 
