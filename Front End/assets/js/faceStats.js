@@ -32,8 +32,8 @@ $(document).on('change', '#file', function()
             processData: false,
             success:function(data)
             {
-                var info = JSON.parse(data);
-                console.log(info);
+                // var info = JSON.parse(data);
+                console.log(data);
 
                 //$('.image-placeholder').css("background-image", "url(" + info.name + ")");
             }
