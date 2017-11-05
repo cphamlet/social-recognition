@@ -81,10 +81,21 @@ $(document).on('change', '#file', function()
                         data: '{"url": ' + '"' + sourceImageUrl + '"}',
                     })
             
-                    .done(function(data) {
+                    .done(function(data) 
+                    {
+                        
                         // Show formatted JSON on webpage.
                         var results = JSON.stringify(data);
                         console.log(results);
+
+
+
+                        $("#sex").text(results[0].gender);
+                        
+
+                        
+
+                        $(".preview-flex-container").addClass("show-preview");
                     })
             
                     .fail(function(jqXHR, textStatus, errorThrown) {
