@@ -1258,7 +1258,7 @@
 	.result {
 		background-color: rgba(256, 256, 256, .2);
 		display: flex;
-		flex-direction: column;
+		flex-direction: row;
 		border-radius: 7px;
 		margin: 15px;
 		opacity: 0;
@@ -1346,9 +1346,10 @@
 		display: flex;
 		flex-direction: column;
 		padding: 5px;
+		transition: 1s;
 	} 
 	.preview {
-		background-color: rgba(256, 256, 256, .2);
+		background-color: rgba(0, 0, 0, .2);
 		display: flex;
 		flex-direction: column;
 		border-radius: 7px;
@@ -1362,17 +1363,15 @@
 		padding: 10px;
 		border-radius: 7px;
 	}
-	.result-box:hover {
-		background-color: rgba(0, 0, 0, .2);
-		outline: 2px dashed white;
-		outline-offset: -10px;
-		
+	.preview-flex-container:hover {
+		background-color: rgba(0, 0, 0, .4);
 	}
-	.result-list {
-		margin: 50px;
+	.preview-list {
+		margin: 25px;
 	}
 	.preview-item {
 		font-style: italic;
+		margin-left: 50px;
 	}
 	.show-preview {
 		opacity: 1;
