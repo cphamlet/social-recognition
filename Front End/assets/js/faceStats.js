@@ -100,7 +100,7 @@ $(document).on('change', '#file', function()
                         $("#age").text("Age: " + Math.round(data[0]['faceAttributes'].age));
 
 
-                        if($("#glasses").text() == "NoGlasses")
+                        if(data[0]['faceAttributes'].glasses == "NoGlasses")
                         {
                             $("#glasses").text("Glasses: " + 'No Glasses');
                         }
