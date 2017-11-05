@@ -37,8 +37,10 @@ function displayResult(image, name, match, socialUrl) {
 
 function _removeInput() {
 	$(".box").addClass("remove-input");
+	$(".preview-flex-container").addClass("remove-input");
 	setTimeout(function() {
-		$('.box').remove();
+		$(".box").remove();
+		$(".preview-flex-container").remove();
 	}, 2000);
 }
 
