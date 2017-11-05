@@ -22,11 +22,11 @@ function sendResults(resultsObj) {
 		var name = "Name: " + resultsObj["results"][i]["name"];
 		var score = "Confidence: " + scoreTemp + "%";
 		var socialUrl = "Social media account: " + resultsObj["results"][i]["link"];
-		displayResult(image, name, score, socialUrl);
+		displayResult(image, imageWidth, imageHeight, name, score, socialUrl);
 	}
 }
 
-function displayResult(image, name, match, socialUrl) {
+function displayResult(image, imageWidth, imageHeight, name, match, socialUrl) {
 	selector = $("#main");
 	html = '<div class="results-flex-container"><div class="result results-flex-container"><img src={0} class="result-box"><ul class="result-list"><li class="result-item">{1}</li><li class="result-item">{2}</li><li class="result-item">{3}</li></ul></div></div>'.format(image, name, match, socialUrl);
 	selector.delay(2000).append(html);
