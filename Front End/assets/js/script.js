@@ -8,20 +8,20 @@ String.prototype.format = function() {
 	return str;
 }
 
-// $(function() {
-// 	sendResults();
-// });
-
 function sendResults(resultsObj) {
 	console.log("THIS RAN");
 	console.log(resultsObj.length);
 	console.log(resultsObj["results"].length);
 	for (var i = 0; i < resultsObj["results"].length; i++) {
 		console.log(resultsObj["results"][i]);
+		scoreTemp = resultsObj["results"][i]["score"];
+		scoreTemp = 1 - scoreTemp;
+		scoreTemp = Math.round(scoreTemp * 100) / 100;
+
 		var image = resultsObj["results"][i]["pic_url"];
-		var name = resultsObj["results"][i]["name"];
-		var score = resultsObj["results"][i]["score"];
-		var socialUrl = resultsObj["results"][i]["link"];
+		var name = "Name: " + resultsObj["results"][i]["name"];
+		var score = "Confidence: " + scoreTemp + "%";
+		var socialUrl = "Social media account: " + resultsObj["results"][i]["link"];
 		displayResult(image, name, score, socialUrl);
 	}
 }
