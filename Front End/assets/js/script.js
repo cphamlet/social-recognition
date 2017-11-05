@@ -37,7 +37,7 @@ function _removeInput() {
 
 function processPics(responseText){
 	var picsArray = JSON.parse(responseText);
-	console.log(picsList)
+	console.log(picsArray);
 	_removeInput();
 	displayResults(picsArray);
 }
