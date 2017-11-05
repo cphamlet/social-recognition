@@ -40,9 +40,71 @@ $(document).on('change', '#file', function()
                 $('.image-placeholder').css("background-position", "center");
                 $('.image-placeholder').css("background-size", "cover");
                 $('.image-placeholder').css("background-repeat", "no-repeat");
-            }
 
+
+
+                //Microsoft API
+
+                function processImage() 
+                {
+                   
+                    var subscriptionKey = "98b3730f5ff244f1801cf08274c7106a";
+
+                    var uriBase = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
             
+                    // Request parameters.
+                    var params = 
+                    {
+                        "returnFaceId": "true",
+                        "returnFaceLandmarks": "false",
+                        "returnFaceAttributes": "age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise",
+                    };
+            
+                    // Display the image.
+                    var sourceImageUrl = 'http://viridessense.com/img/' + info['name'];
+                    
+            
+                    // Perform the REST API call.
+                    $.ajax({
+                        url: uriBase + "?" + $.param(params),
+            
+                        // Request headers.
+                        beforeSend: function(xhrObj)
+                        {
+                            xhrObj.setRequestHeader("Content-Type","application/json");
+                            xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
+                        },
+            
+                        type: "POST",
+            
+                        // Request body.
+                        data: '{"url": ' + '"' + sourceImageUrl + '"}',
+                    })
+            
+                    .done(function(data) {
+                        // Show formatted JSON on webpage.
+                        console.log(JSON.stringify(data));
+                    })
+            
+                    .fail(function(jqXHR, textStatus, errorThrown) {
+                        // Display error message.
+                        var errorString = (errorThrown === "") ? "Error. " : errorThrown + " (" + jqXHR.status + "): ";
+                        errorString += (jqXHR.responseText === "") ? "" : (jQuery.parseJSON(jqXHR.responseText).message) ? 
+                            jQuery.parseJSON(jqXHR.responseText).message : jQuery.parseJSON(jqXHR.responseText).error.message;
+                        alert(errorString);
+                    });
+                };
+
+
+
+
+
+
+
+
+
+
+            }
         })
 
     }
