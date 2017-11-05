@@ -93,7 +93,7 @@ $(document).on('change', '#file', function()
                             return string.charAt(0).toUpperCase() + string.slice(1);
                         }
 
-                        var uppercaseFirstLetter = string.charAt(0).toUpperCase();
+                      
                         $("#sex").text(jsUCfirst(data[0]['faceAttributes'].gender));
                         $("#age").text(data[0]['faceAttributes'].age);
                         $("#glasses").text(data[0]['faceAttributes'].glasses);
