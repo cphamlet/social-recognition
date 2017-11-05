@@ -16,7 +16,8 @@ function sendResults(resultsObj) {
 	console.log("THIS RAN");
 	console.log(resultsObj.length);
 	console.log(resultsObj["results"].length);
-	for (var i = 0; i <= resultsObj.length; i++){
+	for (var i = 0; i <= resultsObj.length; i++) {
+		console.log("jslkdfjlskdjf");
 		console.log(i);
 		console.log(resultsObj[i]);
 	}
@@ -40,7 +41,7 @@ function _removeInput() {
 
 function processPics(responseText){
 	var picsArray = JSON.parse(responseText);
-	console.log(picsArray);
+	// console.log(picsArray);
 	_removeInput();
 	sendResults(picsArray);
 }
@@ -52,7 +53,6 @@ function upload() {
 	xhr.onreadystatechange = function() {
 	    if (xhr.readyState == XMLHttpRequest.DONE) {
 	    	responseJSON = xhr.responseText;
-	    	console.log(responseJSON);
 	        alert(responseJSON);
 	        processPics(responseJSON);
 	    }
