@@ -83,7 +83,7 @@ $(document).on('change', '#file', function()
             
                     .done(function(data) {
                         // Show formatted JSON on webpage.
-                        var results = JSON.parse(data);
+                        var results = JSON.stringify(data);
                         console.log(results);
                     })
             
