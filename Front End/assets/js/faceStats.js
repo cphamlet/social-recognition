@@ -13,7 +13,7 @@ $(document).on('change', '#file', function()
             contentType: false,
             processData: false,
             success:function(data)
-            {i 
+            {
                 // var info = JSON.parse(data);
                 console.log(data);
 
