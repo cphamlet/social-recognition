@@ -1340,7 +1340,6 @@
 		height: 300px;
 		margin-top: 5px;
 		align-self: center;
-		transform: translateY(20px);
 	}
 	.preview-flex-container{
 		opacity: 0;
@@ -1375,7 +1374,6 @@
 	.show-preview {
 		opacity: 1;
 		transition: .5s ease;
-		transform: translateY(-20px);
 	}
 	.preview-box {
 		background-color: rgba(0, 0, 0, .3);
