@@ -1,7 +1,7 @@
 
-$(function() {
-	_removeInput();
-});
+// $(function() {
+// 	_removeInput();
+// });
 
 var resultsList;
 
