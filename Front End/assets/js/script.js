@@ -8,24 +8,20 @@ String.prototype.format = function() {
 	return str;
 }
 
-$(function() {
-	for (var i = 0; i < 5; i++) {
-		image = "assets/images/obama.jpeg"
-		name = "Barack Obama";
-		match = "69% b0ss";
-		socialUrl = "www.check-me-out.biz";
-		_removeInput();
-		addResult(image, name, match, socialUrl);
+// $(function() {
+// 	sendResults();
+// });
+
+
+function sendResults(resultsObj) {
+	for (var i = 0; i <= resultsObj.length; i++){
+		console.log(resultsObj[i]);
 	}
-});
+}
 
-var resultsList;
-
-
-function addResult(image, name, match, socialUrl) {
+function displayResult(image, name, match, socialUrl) {
 	selector = $("#main");
 	html = '<div class="results-flex-container"><div class="result results-flex-container"><img src={0} class="result-box"><ul class="result-list"><li class="result-item">{1}</li><li class="result-item">{2}</li><li class="result-item">{3}</li></ul></div></div>'.format(image, name, match, socialUrl);
-	console.log(html);
 	selector.delay(2000).append(html);
 	setTimeout(function() {
 		$('.result').addClass("add-result");
@@ -40,12 +36,10 @@ function _removeInput() {
 }
 
 function processPics(responseText){
-	var picsList = JSON.parse(responseText);
-	console.log(picsList)
-	updateResults()
-	// for (var i = 0; i <= 50; i++){
-	// 	resultsList.append(picsList[i]);
-	// }
+	var picsArray = JSON.parse(responseText);
+	console.log(picsArray);
+	_removeInput();
+	sendResults(picsArray);
 }
 
 function upload() {
