@@ -75,7 +75,7 @@
 <h1>Detect Faces:</h1>
 Enter the URL to an image that includes a face or faces, then click the <strong>Analyze face</strong> button.
 <br><br>
-Image to analyze: <input type="text" name="inputImage" id="inputImage" value="https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg" />
+Image to analyze: <input type="text" name="inputImage" id="inputImage" value="http://ec2-34-210-241-233.us-west-2.compute.amazonaws.com/pics/chad.JPG" />
 <button onclick="processImage()">Analyze face</button>
 <br><br>
 <div id="wrapper" style="width:1020px; display:table;">
