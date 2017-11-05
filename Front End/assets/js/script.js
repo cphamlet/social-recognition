@@ -16,10 +16,13 @@ function sendResults(resultsObj) {
 	console.log("THIS RAN");
 	console.log(resultsObj.length);
 	console.log(resultsObj["results"].length);
-	for (var i = 0; i <= resultsObj.length; i++) {
-		console.log("jslkdfjlskdjf");
-		console.log(i);
-		console.log(resultsObj[i]);
+	for (var i = 0; i < resultsObj["results"].length; i++) {
+		console.log(resultsObj["results"][i]);
+		var image = resultsObj["results"][i]["pic_url"];
+		var name = resultsObj["results"][i]["name"];
+		var score = resultsObj["results"][i]["score"];
+		var socialUrl = resultsObj["results"][i]["link"];
+		displayResult(image, name, score, socialUrl);
 	}
 }
 
