@@ -90,7 +90,7 @@ def detect_faces_in_image(file_stream):
 
     face_found = False
     is_obama = False
-
+    face_distances = False
     if len(unknown_face_encodings) > 0:
         face_found = True
         # See if the first face in the uploaded image matches the known face of Obama
@@ -99,23 +99,29 @@ def detect_faces_in_image(file_stream):
         #if match_results[0]:
         #    is_obama = True
 
-    # Return the result as json
-    result = {
-	"results":[
-	{
-        "pic_url": "/known-pics/connor-hat.JPG",
-        "name": "Connor Hamlet",
-	"score":face_distances[0]
-	},
-
-	{
-        "pic_url": "/known-pics/connor-hat.JPG",
-        "name": "Connor Hamlet",
-        "score":face_distances[0]
+    if face_distances == False:
+        result = {
+        "Error": "The server received the photo but failed to parse it"
         }
-	]
+    else:
+        # Return the result as json
+        result = {
+            "results":[
+            {
+            "pic_url": "/known-pics/connor-hat.JPG",
+            "name": "Connor Hamlet",
+            "score":face_distances[0]
+            },
 
-    }
+            {
+            "pic_url": "/known-pics/connor-hat.JPG",
+            "name": "Connor Hamlet",
+            "score":face_distances[0]
+            }
+        ]
+
+        }
+
     print(result)
     return jsonify(result)
 
