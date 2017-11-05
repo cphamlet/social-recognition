@@ -12,9 +12,12 @@ String.prototype.format = function() {
 // 	sendResults();
 // });
 
-
 function sendResults(resultsObj) {
+	console.log("THIS RAN");
+	console.log(resultsObj.length);
+	console.log(resultsObj["results"].length);
 	for (var i = 0; i <= resultsObj.length; i++){
+		console.log(i);
 		console.log(resultsObj[i]);
 	}
 }
@@ -48,7 +51,8 @@ function upload() {
 	var xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function() {
 	    if (xhr.readyState == XMLHttpRequest.DONE) {
-	    	responseJSON = xhr.responseText
+	    	responseJSON = xhr.responseText;
+	    	console.log(responseJSON);
 	        alert(responseJSON);
 	        processPics(responseJSON);
 	    }
