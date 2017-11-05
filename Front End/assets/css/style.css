@@ -1,5 +1,6 @@
 @import url(font-awesome.min.css);
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300italic,600italic,300,600");
+@import url('https://fonts.googleapis.com/css?family=Raleway:400i');
 
 /*
 	Dimension by HTML5 UP
@@ -179,15 +180,51 @@
 		}
 
 	h1 {
-		font-size: 2.25rem;
-		line-height: 1.3;
-		letter-spacing: 0.5rem;
+		font-size: 2.45rem;
+		line-height: 1;
+		letter-spacing: 0.7rem;
+		padding-bottom: 3px;
+		display: inline-block;
+		position: relative;
+		text-decoration: none;
+		transition: .5s;
+	}
+	h1:hover {
+		letter-spacing: .9rem;
+	}
+	.main-title:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 100%;
+		height: 2px;
+		background-color: white;
+		transform: scaleX(0);
+		transition: transform 0.5s ease;
+	}
+	.main-title:after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		width: 100%;
+		height: 2px;
+		background-color: white;
+		transform: scaleX(0);
+		transition: transform 0.5s ease;
+	}
+	.main-title:hover:before, 
+	.main-title:hover:after {
+		transform: scaleX(1);
 	}
 
 	h2 {
-		font-size: 1.5rem;
-		line-height: 1.4;
-		letter-spacing: 0.5rem;
+		font-family: Raleway;
+		font-size: 1.3rem;
+		line-height: 1.5;
+		letter-spacing: 0.3rem;
+		font-style: italic;
 	}
 
 	h3 {
@@ -279,6 +316,7 @@
 	.align-right {
 		text-align: right;
 	}
+
 
 /* Form */
 /*
