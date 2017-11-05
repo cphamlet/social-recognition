@@ -104,6 +104,10 @@ $(document).on('change', '#file', function()
                         {
                             $("#glasses").text("Glasses: " + 'No Glasses');
                         }
+                        else
+                        {
+                            $("#glasses").text(data[0]['faceAttributes'].glasses);
+                        }
                        
                         
                         
