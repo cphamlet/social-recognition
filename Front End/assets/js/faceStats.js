@@ -27,6 +27,7 @@ $(document).on('change', '#file', function()
             url: "././upload.php",
             method: "POST",
             data: form_data,
+            contentType: false,
             success:function(data)
             {
                 // var info = JSON.parse(data);
