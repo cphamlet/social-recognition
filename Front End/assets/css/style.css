@@ -1342,6 +1342,7 @@
 		align-self: center;
 	}
 	.preview-flex-container{
+		opacity: 1;
 		display: flex;
 		flex-direction: column;
 		padding: 5px;
