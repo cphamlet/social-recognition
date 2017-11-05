@@ -8,9 +8,9 @@ String.prototype.format = function() {
 	return str;
 }
 
-$(function() {
-	sendResults();
-});
+// $(function() {
+// 	sendResults();
+// });
 
 
 function sendResults(resultsObj) {
@@ -36,12 +36,10 @@ function _removeInput() {
 }
 
 function processPics(responseText){
-	var picsList = JSON.parse(responseText);
+	var picsArray = JSON.parse(responseText);
 	console.log(picsList)
-	updateResults()
-	// for (var i = 0; i <= 50; i++){
-	// 	resultsList.append(picsList[i]);
-	// }
+	_removeInput();
+	displayResults(picsArray);
 }
 
 function upload() {
