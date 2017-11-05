@@ -90,7 +90,7 @@ $(document).on('change', '#file', function()
 
 
 
-                        $("#sex").text(results[0].gender);
+                        $("#sex").text(results[0]['gender']);
                         
 
                         
