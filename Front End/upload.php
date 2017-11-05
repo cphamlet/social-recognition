@@ -1,7 +1,6 @@
 <?php
 
-echo ($_FILES['file']);
-echo ($_FILES['name']);
+$arr = [];
 
 if($_FILES["file"]["name"] != '')
 {
@@ -11,7 +10,7 @@ if($_FILES["file"]["name"] != '')
     $location = '/img' .$name;
     move_uploaded_file($_FILES["file"]["tmp_name"], $location);
 
-    $arr = [];
+    
 
     $arr['location'] = $location;
     $arr['name'] = $name;
