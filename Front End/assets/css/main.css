@@ -281,7 +281,7 @@
 	}
 
 /* Form */
-
+/*
 	form {
 		margin: 0 0 2.5rem 0;
 	}
@@ -551,7 +551,7 @@
 		color: rgba(255, 255, 255, 0.5) !important;
 		opacity: 1.0;
 	}
-
+*/
 /* Box */
 
 	.box {
@@ -1448,21 +1448,14 @@
 		}
 
 /* Upload Box */
-	.box__dragndrop,
-	.box__uploading,
-	.box__success,
-	.box__error {
-		display: none;
-	}
-	.box.has-advanced-upload {
-		background-color: lightgrey;
+	.box-inputs {
+		background-color: black;
 		outline: 2px dashed black;
 		outline-offset: -10px;
-	}
-	.box.has-advanced-upload .box__dragndrop {
 		display: inline;
+		margin: 10 10 10 10;
 	}
-	.box.is-dragover {
+	.box-inputs: hover{
 		background-color: darkgrey;
 	}
 
