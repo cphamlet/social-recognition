@@ -8,7 +8,7 @@ if($_FILES['file']['name'] != '')
     $location = '/img' .$name;
     move_uploaded_file($_FILES["file"]["tmp_name"], $location);
 
-    var $arr = [];
+    $arr = [];
 
     $arr['location'] = $location;
     $arr['name'] = $name;
