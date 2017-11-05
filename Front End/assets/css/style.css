@@ -1354,7 +1354,7 @@
 		border-radius: 7px;
 		margin: 15px;
 	}
-	.result-box {
+	.preview-flex-box {
 		background-color: rgba(0, 0, 0, .3);
 		outline: 0px dashed rgba(256, 256, 256, 0);
 		outline-offset: 0px;
@@ -1371,10 +1371,10 @@
 	.result-list {
 		margin: 50px;
 	}
-	.result-item {
+	.preview-item {
 		font-style: italic;
 	}
-	.add-result {
+	.show-preview {
 		opacity: 1;
 		transition: .5s ease;
 	}
