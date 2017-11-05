@@ -97,7 +97,7 @@ $(document).on('change', '#file', function()
 
 
 
-
+                processImage();
 
 
 
