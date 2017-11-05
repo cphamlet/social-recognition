@@ -1,21 +1,9 @@
 <?php
 
-$file = $_FILES;
 
-$arr = [];
+$data['file'] = $_FILES;
 
-$dir = '/img';
-
-$extension = pathinfo($file['file']['name'], PATHINFO_EXTENSION);
-
-move_uploaded_file($_FILES["file"]["tmp_name"], $dir.'.',$extension);
-
-    
-
-$arr['file'] = $file['file'];
-
-
-echo json_encode($arr);
+echo json_encode($data);
 
     
   
