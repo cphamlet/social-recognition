@@ -1,9 +1,43 @@
 
-// $(function() {
-// 	_removeInput();
-// });
+String.prototype.format = function() {
+	var str = this;
+	for (var i = 0; i < arguments.length; i++) {       
+		var reg = new RegExp("\\{" + i + "\\}", "gm");             
+	str = str.replace(reg, arguments[i]);
+	}
+	return str;
+}
+
+$(function() {
+	for (var i = 0; i < 5; i++) {
+		image = "assets/images/obama.jpeg"
+		name = "Barack Obama";
+		match = "69% b0ss";
+		socialUrl = "www.check-me-out.biz";
+		_removeInput();
+		addResult(image, name, match, socialUrl);
+	}
+});
 
 var resultsList;
+
+
+function addResult(image, name, match, socialUrl) {
+	selector = $("#main");
+	html = '<div class="results-flex-container"><div class="result results-flex-container"><img src={0} class="result-box"><ul class="result-list"><li class="result-item">{1}</li><li class="result-item">{2}</li><li class="result-item">{3}</li></ul></div></div>'.format(image, name, match, socialUrl);
+	console.log(html);
+	selector.delay(2000).append(html);
+	setTimeout(function() {
+		$('.result').addClass("add-result");
+	}, 2000);
+}
+
+function _removeInput() {
+	$(".box").addClass("remove-input");
+	setTimeout(function() {
+		$('.box').remove();
+	}, 2000);
+}
 
 function processPics(responseText){
 	var picsList = JSON.parse(responseText);
@@ -12,14 +46,6 @@ function processPics(responseText){
 	// for (var i = 0; i <= 50; i++){
 	// 	resultsList.append(picsList[i]);
 	// }
-}
-
-function updateResults() {
-	_removeInput()
-}
-
-function _removeInput() {
-	$(".box").addClass("remove-input");
 }
 
 function upload() {
@@ -36,13 +62,3 @@ function upload() {
 	xhr.open("POST", "./upload");
 	xhr.send(formData);
 }
-
-// $.ajax({
-//   type: "POST",
-//   url: "http://ec2-34-210-241-233.us-west-2.compute.amazonaws.com/upload",
-//   data: document.getElementById("file").files[0],
-//   cache: false,
-//   success: function(data){
-//      $("#resultarea").text(data);
-//   }
-// });
