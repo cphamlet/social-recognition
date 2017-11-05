@@ -12,10 +12,12 @@ String.prototype.format = function() {
 // 	sendResults();
 // });
 
-
 function sendResults(resultsObj) {
 	console.log("THIS RAN");
-	for (var i = 0; i <= resultsObj.length; i++){
+	console.log(resultsObj.length());
+	console.log(resultsObj["results"].length());
+	for (var i = 0; i <= resultsObj.length(); i++){
+		console.log(i);
 		console.log(resultsObj[i]);
 	}
 }
