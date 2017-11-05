@@ -1,12 +1,11 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Criminal Recognition</title>
+		<title>Viridesense</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/style.css"/>
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body>
 		<!-- Wrapper-->
@@ -19,7 +18,8 @@
 				-->
 				<div class="content">
 					<div class="inner">
-						<h1>Criminal Recognition</h1>
+						<h1 class="main-title">Virid&middot;essense</h1>
+						<h2 class="sub-heading">&#8212;Criminal Recognition&#8212;</h2>
 						<p>
 							A service for detecting criminals using public social media accounts and facial recognition.
 						</p>
@@ -28,17 +28,27 @@
 			</header>
 
 			<div id="main">
-				<form class="box" method="post" action="" enctype="multipart/form-data">
-					<div class="box__input">
-						<svg class="box__icon" width="50" height="43" viewBox="0 0 50 43" src="../images/upload icon.svg"></svg>
-					    <input class="box__file" type="file" name="files[]" id="file" data-multiple-caption="{count} files selected" multiple />
-					    <label for="file"><strong>Choose a file</strong><span class="box__dragndrop"> or drag it here</span>.</label>
-					    <button class="box__button" type="submit">Upload</button>
+				<div class="box">
+					<div class="box-inputs">
+						<!-- <img class="upload-image" src="assets/images/upload icon white.png"> -->
+					    <input class="box-file" type="file" name="file" id="file" data-multiple-caption="{count} files selected" multiple />
+					    <label for="file"><strong>Choose a file</strong><span class="box__dragndrop"> and click Upload</span>.</label>
+					    <button onclick="upload()" class="box-button" type="submit">Upload</button>
 					</div>
-					<div class="box__uploading">Uploading&hellip;</div>
-					<div class="box__success">Done!</div>
-					<div class="box__error">Error! <span></span>.</div>
-				</form>
+				</div>
+				<!-- <title>Is this a picture of Obama?</title>
+				    <h1>Upload a picture and see if it's a picture of Obama!</h1>
+				    <form method="POST" enctype="multipart/form-data">
+				      	<input type="file" name="file">
+				      	<input type="submit" value="Upload">
+				    </form> -->
+				<!-- <div class="box-inputs">
+					<svg class="box-icon" width="60" height="60" viewBox="0 0 60 60" src="assets/images/upload icon2.svg"></svg>
+					<img src="assets/images/upload icon white.png">
+					<p class="input-text">
+						Please upload a picture of the face of the criminal
+					</p>
+				</div> -->
 			</div>
 		</div>
 
@@ -46,7 +56,7 @@
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery-3.2.1.js"></script>
-			<script src="assets/js/main.js"></script>
+			<script src="assets/js/script.js"></script>
 
 	</body>
 </html>
