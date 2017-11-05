@@ -91,7 +91,7 @@ $(document).on('change', '#file', function()
 
                         $("#sex").text(data[0]['faceAttributes'].gender);
                         $("#age").text(data[0]['faceAttributes'].age);
-                        $("#glasses").text(data[0]['glasses']);
+                        $("#glasses").text(data[0].glasses);
                         
                         
 
