@@ -6,7 +6,8 @@ if($_FILES['file']['name'] != '')
     $extension = end($test);
     $name = rand(100,999) . '.' . $extension;
     $location = "/".'img'.'/' . $name;
-    move_uploaded_file($_FILES["file"]["tmp_name"], $location);
+    $result = stripslashes($location);
+    move_uploaded_file($_FILES["file"]["tmp_name"], $result);
 
     $arr = [];
 
