@@ -63,28 +63,25 @@ def detect_faces_in_image(file_stream):
     with open('names.json') as data_file:    
         names_info = json.load(data_file)
 
-    with open('processed_data.json') as temp_data:    
-        preprocessed_data = json.load(temp_data)
+    mypath = dirname(abspath(__file__))+"/known-pics"
+    known_encoding_list = [{}]
+    fileList = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 
-
+    print(fileList)
     # Load the uploaded image file
     unknown_img = face_recognition.load_image_file(file_stream)
     # Get face encodings for any faces in the uploaded image
     unknown_face_encodings = face_recognition.face_encodings(unknown_img)
     listMatches = []
-    for encoded_obj in preprocessed_data["files"]:
-        known_image = encoded_obj["fileName"]
-        temp_code = encoded_obj["encoding"]
-
-        #converts all strings to num in array
-        num_encoding = []
-        for string in temp_code:
-        	num_encoding.append(float(string))
-
+    for photo in fileList:
+        known_image = face_recognition.load_image_file("./known-pics/"+photo, mode='RGB')
+        temp_code = face_recognition.face_encodings(known_image)
         if len(temp_code) == 0:
             print("\n"+photo+" is not being parsed right for some reason")
             continue
-        known_encoding = num_encoding
+        known_encoding = temp_code[0]
+
+        #known_encoding_list.append({"fileName": photo, "encoding": known_encoding})
 
         if len(unknown_face_encodings) > 0:
             face_found = True
@@ -95,7 +92,7 @@ def detect_faces_in_image(file_stream):
            # if face_distances < 0.6:
             print("Distance:" + str(face_distances))
                 #listMatches.append({"fileName": photo, "score":face_distances})
-            listMatches.append({"fileName": encoded_obj["fileName"], "score":face_distances})
+            listMatches.append({"fileName": photo, "score":face_distances})
 
     #listMatches = sorted(listMatches, key=lambda k: k['score'])
    
