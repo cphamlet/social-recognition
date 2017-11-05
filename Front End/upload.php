@@ -1,6 +1,9 @@
 <?php
 
-if($_FILES['file']['name'] != '')
+echo ($_FILES['file']);
+echo ($_FILES['name']);
+
+if($_FILES["file"]["name"] != '')
 {
     $test = explode(".", $_FILES["file"]["name"]); // 
     $extension = end($test);
