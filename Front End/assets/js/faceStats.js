@@ -34,9 +34,9 @@ $(document).on('change', '#file', function()
             success:function(data)
             {
                 var info = JSON.parse(data);
-                console.log(data);
+                console.log(info);
 
-                $('.image-placeholder').css("background-image", "url(" + "../../img/" + info.name + ")");
+                $('.image-placeholder').css("background-image", "url(" + "../../img/" + info['name'] + ")");
             }
 
             
