@@ -106,7 +106,7 @@ $(document).on('change', '#file', function()
                         }
                         else
                         {
-                            $("#glasses").text(data[0]['faceAttributes'].glasses);
+                            $("#glasses").text("Glasses: " + data[0]['faceAttributes'].glasses);
                         }
                        
                         
