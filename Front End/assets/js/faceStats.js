@@ -90,7 +90,7 @@ $(document).on('change', '#file', function()
 
 
 
-                        $("#sex").text(results[0]);
+                        $("#sex").text(results[1]);
                         
                         
 
