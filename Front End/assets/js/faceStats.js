@@ -21,6 +21,7 @@ $(document).on('change', '#file', function()
         //Make a formdata object and add the file to it
         var form_data = new FormData();
         form_data.append("file", property);
+        console.log(form_data);
 
         $.ajax
         ({
@@ -28,6 +29,7 @@ $(document).on('change', '#file', function()
             method: "POST",
             data: form_data,
             contentType: false,
+            processData: false,
             success:function(data)
             {
                 // var info = JSON.parse(data);

@@ -1,20 +1,22 @@
 <?php
 
+$file = $_FILES;
+
 $arr = [];
 
-if($_FILES["file"]["name"] != '')
-{
-    $test = explode(".", $_FILES["file"]["name"]); // 
-    $extension = end($test);
-    $name = rand(100,999); . '.' . $extension;
-    $location = '/img' .$name;
-    move_uploaded_file($_FILES["file"]["tmp_name"], $location);
+$dir = '/img';
+
+$extension = pathinfo($file['file']['name'], PATHINFO_EXTENSION);
+
+move_uploaded_file($_FILES["file"]["tmp_name"], $dir.'.',$extension);
 
     
 
-    $arr['location'] = $location;
-    $arr['name'] = $name;
+$arr['file'] = $file['file'];
 
-    echo json_encode($arr);
+
+echo json_encode($arr);
+
     
-}
+  
+    
