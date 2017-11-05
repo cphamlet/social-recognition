@@ -16,8 +16,7 @@ function sendResults(resultsObj) {
 	console.log("THIS RAN");
 	console.log(resultsObj.length);
 	console.log(resultsObj["results"].length);
-	for (var i = 0; i <= resultsObj.length; i++) {
-		console.log("jslkdfjlskdjf");
+	for (var i = 0; i < resultsObj["results"].length; i++) {
 		console.log(i);
 		console.log(resultsObj[i]);
 	}
