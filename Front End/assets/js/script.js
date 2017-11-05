@@ -1,4 +1,8 @@
 
+$(function() {
+	_removeInput();
+});
+
 var resultsList;
 
 function processPics(responseText){
@@ -15,7 +19,7 @@ function updateResults() {
 }
 
 function _removeInput() {
-	$(".box").remove();
+	$(".box").addClass("remove-input");
 }
 
 function upload() {
