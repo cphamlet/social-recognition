@@ -37,6 +37,9 @@ $(document).on('change', '#file', function()
                 console.log(info);
 
                 $('.image-placeholder').css("background-image", "url(" + "../../img/" + info['name'] + ")");
+                $('.image-placeholder').css("background-position", "center");
+                $('.image-placeholder').css("background-size", "cover");
+                $('.image-placeholder').css("background-repeat", "no-repeat");
             }
 
             
