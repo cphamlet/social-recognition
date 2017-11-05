@@ -11,6 +11,7 @@ $(document).on('change', '#file', function()
     //Check for image size not over 2 megs
     var image_size = property.size;
     console.log(image_size);
+
     if(image_size > 20000000) 
     {
         alert("Image File Size is to big");
@@ -32,10 +33,13 @@ $(document).on('change', '#file', function()
             processData: false,
             success:function(data)
             {
-                // var info = JSON.parse(data);
-                console.log(data);
+                var info = JSON.parse(data);
+                console.log(info);
 
-                //$('.image-placeholder').css("background-image", "url(" + info.name + ")");
+                $('.image-placeholder').css("background-image", "url(" + "../../img/" + info['name'] + ")");
+                $('.image-placeholder').css("background-position", "center");
+                $('.image-placeholder').css("background-size", "cover");
+                $('.image-placeholder').css("background-repeat", "no-repeat");
             }
 
             
