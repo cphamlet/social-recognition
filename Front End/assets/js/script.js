@@ -1,8 +1,16 @@
 
+var resultsList;
 
-function processPic(responseText){
-	var pic_obj = JSON.parse(responseText);
-	console.log(pic_obj)
+function processPics(responseText){
+	var picsList = JSON.parse(responseText);
+	console.log(picsList)
+	// for (var i = 0; i <= 50; i++){
+	// 	resultsList.append(picsList[i]);
+	// }
+}
+
+function update_results(){
+	null
 }
 
 function upload() {
@@ -11,8 +19,9 @@ function upload() {
 	var xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function() {
 	    if (xhr.readyState == XMLHttpRequest.DONE) {
-	        alert(xhr.responseText);
-	        processPic(xhr.responseText);
+	    	responseJSON = xhr.responseText
+	        alert(responseJSON);
+	        processPics(responseJSON);
 	    }
 	}
 	xhr.open("POST", "http://ec2-34-210-241-233.us-west-2.compute.amazonaws.com/upload");
