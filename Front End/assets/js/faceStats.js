@@ -24,7 +24,7 @@ $(document).on('change', '#file', function()
 
         $.ajax
         ({
-            url: "/upload.php",
+            url: "././upload.php",
             method: "POST",
             data: form_data,
             contentType: false,
