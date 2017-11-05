@@ -47,15 +47,11 @@ def upload_image():
             return detect_faces_in_image(file)
 
     # If no valid image file was uploaded, show the file upload form:
-    return '''
-    <!doctype html>
-    <title>Is this a picture of Obama?</title>
-    <h1>Upload a picture and see if it's a picture of Obama!</h1>
-    <form method="POST" enctype="multipart/form-data">
-      <input type="file" name="file">
-      <input type="submit" value="Upload">
-    </form>
-    '''
+    result = {
+        "face_found_in_image": "False",
+        "is_picture_of_obama": "False"
+    }
+    return jsonify(result)
 
 
 def detect_faces_in_image(file_stream):
@@ -105,9 +101,22 @@ def detect_faces_in_image(file_stream):
 
     # Return the result as json
     result = {
-        "face_found_in_image": face_found,
-        "is_picture_of_obama": face_distances[0]
+	"results":[
+	{
+        "pic_url": "/known-pics/connor-hat.JPG",
+        "name": "Connor Hamlet",
+	"score":face_distances[0]
+	},
+
+	{
+        "pic_url": "/known-pics/connor-hat.JPG",
+        "name": "Connor Hamlet",
+        "score":face_distances[0]
+        }
+	]
+
     }
+    print(result)
     return jsonify(result)
 
 if __name__ == "__main__":
