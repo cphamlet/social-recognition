@@ -56,7 +56,7 @@ function upload() {
 	xhr.onreadystatechange = function() {
 	    if (xhr.readyState == XMLHttpRequest.DONE) {
 	    	responseJSON = xhr.responseText;
-	        alert(responseJSON);
+	        // alert(responseJSON);
 	        processPics(responseJSON);
 	    }
 	}
