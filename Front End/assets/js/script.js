@@ -9,20 +9,17 @@ String.prototype.format = function() {
 }
 
 $(function() {
-	for (var i = 0; i < 5; i++) {
-		image = "assets/images/obama.jpeg"
-		name = "Barack Obama";
-		match = "69% b0ss";
-		socialUrl = "www.check-me-out.biz";
-		// _removeInput();
-		addResult(image, name, match, socialUrl);
-	}
+	sendResults();
 });
 
-var resultsList;
 
+function sendResults(resultsObj) {
+	for (var i = 0; i <= resultsObj.length; i++){
+		console.log(resultsObj[i]);
+	}
+}
 
-function addResult(image, name, match, socialUrl) {
+function displayResult(image, name, match, socialUrl) {
 	selector = $("#main");
 	html = '<div class="results-flex-container"><div class="result results-flex-container"><img src={0} class="result-box"><ul class="result-list"><li class="result-item">{1}</li><li class="result-item">{2}</li><li class="result-item">{3}</li></ul></div></div>'.format(image, name, match, socialUrl);
 	selector.delay(2000).append(html);
