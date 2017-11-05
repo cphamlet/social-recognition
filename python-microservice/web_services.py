@@ -72,7 +72,12 @@ def detect_faces_in_image(file_stream):
     # Get face encodings for any faces in the uploaded image
     unknown_face_encodings = face_recognition.face_encodings(unknown_img)
     listMatches = []
+    i = 0;
     for encoded_obj in preprocessed_data["files"]:
+        if i == 50:
+            break
+        i = i + 1
+
         known_image = encoded_obj["fileName"]
         temp_code = encoded_obj["encoding"]
 
@@ -82,7 +87,7 @@ def detect_faces_in_image(file_stream):
         	num_encoding.append(float(string))
 
         if len(temp_code) == 0:
-            print("\n"+photo+" is not being parsed right for some reason")
+            print("\n"+photo+" face not found")
             continue
         known_encoding = num_encoding
 
@@ -95,9 +100,10 @@ def detect_faces_in_image(file_stream):
            # if face_distances < 0.6:
             print("Distance:" + str(face_distances))
                 #listMatches.append({"fileName": photo, "score":face_distances})
+
             listMatches.append({"fileName": encoded_obj["fileName"], "score":face_distances})
 
-    #listMatches = sorted(listMatches, key=lambda k: k['score'])
+    listMatches = sorted(listMatches, key=lambda k: k['score'])
    
     
     #Result is the json we send back to the client
@@ -119,13 +125,18 @@ def detect_faces_in_image(file_stream):
 
     # }
     for match in listMatches:
-        print("match: " +names_info[match["fileName"]]["name"] + " "+str(match["score"]))
+        full_name = "[REDACTED]"
+        link = "N/A"
+        if match["fileName"] in names_info:
+            full_name = names_info[match["fileName"]]["name"]
+            link = names_info[match["fileName"]]["link"]
+        print("match: " +full_name + " "+str(match["score"]))
         result["results"].append({"pic_url": 
         "/known-pics/"+match["fileName"],
         #Below gets the name using the filename in names.json
-        "name": names_info[match["fileName"]]["name"],
+        "name": full_name,
         "score": str(match["score"]),
-        "link": names_info[match["fileName"]]["link"]
+        "link": link
         })
     print("Results:\n")
     print(jsonify(result))
