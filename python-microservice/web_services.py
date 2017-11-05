@@ -116,7 +116,7 @@ def detect_faces_in_image(file_stream):
 
     # }
     for match in listMatches:
-        print("match: " +match["fileName"] + " "+str(match["score"]))
+        print("match: " +names_info[match["fileName"]]["name"] + " "+str(match["score"]))
         result["results"].append({"pic_url": 
         "/known-pics/"+match["fileName"],
         #Below gets the name using the filename in names.json
