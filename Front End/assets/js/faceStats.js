@@ -40,6 +40,7 @@ $(document).on('change', '#file', function()
                 $('.image-placeholder').css("background-position", "center");
                 $('.image-placeholder').css("background-size", "cover");
                 $('.image-placeholder').css("background-repeat", "no-repeat");
+                $('.image-placeholder').addClass("show-preview");
 
 
 
