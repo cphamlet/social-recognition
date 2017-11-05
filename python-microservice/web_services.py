@@ -18,6 +18,11 @@
 
 import face_recognition
 from flask import Flask, jsonify, request, redirect
+from os import listdir
+from os.path import isfile, join, dirname, abspath
+from PIL import ImageFile
+ImageFile.LOAD_TRUNCATED_IMAGES = True
+
 
 # You can change this to any folder on your system
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
@@ -55,6 +60,12 @@ def upload_image():
 
 
 def detect_faces_in_image(file_stream):
+    mypath = dirname(abspath(__file__))+"/known-pics"
+    print(mypath)
+    known_encoding_list = [{}]
+    fileList = [f for f in listdir(mypath) if isfile(join(mypath, f))]
+
+    print(fileList)
     # Pre-calculated face encoding of Obama generated with face_recognition.face_encodings(img)
     known_face_encoding = [-0.09634063,  0.12095481, -0.00436332, -0.07643753,  0.0080383,
                             0.01902981, -0.07184699, -0.09383309,  0.18518871, -0.09588896,
@@ -84,45 +95,81 @@ def detect_faces_in_image(file_stream):
                             0.07417042,  0.07126575,  0.00209804]
 
     # Load the uploaded image file
-    img = face_recognition.load_image_file(file_stream)
+    unknown_img = face_recognition.load_image_file(file_stream)
     # Get face encodings for any faces in the uploaded image
-    unknown_face_encodings = face_recognition.face_encodings(img)
+    unknown_face_encodings = face_recognition.face_encodings(unknown_img)
+    listMatches = []
+    for photo in fileList:
+        known_image = face_recognition.load_image_file("./known-pics/"+photo, mode='RGB')
+        temp_code = face_recognition.face_encodings(known_image)
+        if len(temp_code) == 0:
+            print("\n"+photo+" is not being parsed right for some reason")
+            continue
+        known_encoding = temp_code[0]
 
-    face_found = False
-    is_obama = False
-    face_distances = False
-    if len(unknown_face_encodings) > 0:
-        face_found = True
-        # See if the first face in the uploaded image matches the known face of Obama
-        #match_results = face_recognition.compare_faces([known_face_encoding], unknown_face_encodings[0])
-        face_distances = face_recognition.face_distance([known_face_encoding], unknown_face_encodings[0])
-        #if match_results[0]:
-        #    is_obama = True
+        #known_encoding_list.append({"fileName": photo, "encoding": known_encoding})
 
-    if face_distances == False:
-        result = {
-        "Error": "The server received the photo but failed to parse it"
-        }
-    else:
-        # Return the result as json
-        result = {
-            "results":[
-            {
-            "pic_url": "/known-pics/connor-hat.JPG",
-            "name": "Connor Hamlet",
-            "score":face_distances[0]
-            },
+        if len(unknown_face_encodings) > 0:
+            face_found = True
+            # See if the first face in the uploaded image matches the known face of Obama
+            face_distances = face_recognition.face_distance([known_encoding], unknown_face_encodings[0])
+            #if match_results[0]:
+            #    is_obama = True
+           # if face_distances < 0.6:
+            print("Distance:" + str(face_distances))
+                #listMatches.append({"fileName": photo, "score":face_distances})
+            listMatches.append({"fileName": photo, "score":face_distances})
 
-            {
-            "pic_url": "/known-pics/connor-hat.JPG",
-            "name": "Connor Hamlet",
-            "score":face_distances[0]
-            }
-        ]
+    #listMatches = sorted(listMatches, key=lambda k: k['score'])
+   
+    
+    
 
-        }
 
-    print(result)
+    # face_found = False
+    # is_obama = False
+    # face_distances = False
+    # if len(unknown_face_encodings) > 0:
+    #     face_found = True
+    #     # See if the first face in the uploaded image matches the known face of Obama
+    #     #match_results = face_recognition.compare_faces([known_face_encoding], unknown_face_encodings[0])
+    #     face_distances = face_recognition.face_distance([known_face_encoding], unknown_face_encodings[0])
+    #     #if match_results[0]:
+    #     #    is_obama = True
+
+    # if face_distances == False:
+    #     result = {
+    #     "Error": "The server received the photo but failed to parse it"
+    #     }
+    # else:
+    #     # Return the result as json
+
+    result = { "results":[]}
+    # result = {
+    #         "results":[
+    #         {
+    #         "pic_url": "/known-pics/connor-hat.JPG",
+    #         "name": "Connor Hamlet",
+    #         "score":face_distances[0]
+    #         },
+
+    #         {
+    #         "pic_url": "/known-pics/connor-hat.JPG",
+    #         "name": "Connor Hamlet",
+    #         "score":face_distances[0]
+    #         }
+    #     ]
+
+    # }
+    for match in listMatches:
+        print("match: " +match["fileName"] + " "+str(match["score"]))
+        result["results"].append({"pic_url": 
+        "/known-pics/"+match["fileName"],
+        "name": "Connor Hamlet",
+        "score": str(match["score"])
+        })
+    print("Results:\n")
+    print(jsonify(result))
     return jsonify(result)
 
 if __name__ == "__main__":
