@@ -39,7 +39,7 @@ function processPics(responseText){
 	var picsArray = JSON.parse(responseText);
 	console.log(picsArray);
 	_removeInput();
-	displayResult(picsArray);
+	sendResults(picsArray);
 }
 
 function upload() {
