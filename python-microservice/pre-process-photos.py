@@ -10,7 +10,7 @@ mypath = dirname(abspath(__file__))+target_dir
 fileList = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 
 for photo in fileList:
-    maxsize = (640,640)
+    maxsize = (540,540)
     image = Image.open(mypath+"/"+photo)
     thumb = ImageOps.fit(image, maxsize, Image.ANTIALIAS)
     thumb.save(mypath+"/"+photo)
