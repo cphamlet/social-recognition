@@ -24,7 +24,7 @@ function upload() {
 	        processPics(responseJSON);
 	    }
 	}
-	xhr.open("POST", "http://ec2-34-210-241-233.us-west-2.compute.amazonaws.com/upload");
+	xhr.open("POST", "./upload");
 	xhr.send(formData);
 }
 
