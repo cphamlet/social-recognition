@@ -3,7 +3,7 @@ $(document).on('change', '#file', function()
     var property = document.getElementById("file"); //Get the file
    
     console.log(property);
-    var form_data = new FormData(property[0]);
+    var form_data = new FormData(property.files[0]);
 
         $.ajax
         ({
@@ -13,7 +13,7 @@ $(document).on('change', '#file', function()
             contentType: false,
             processData: false,
             success:function(data)
-            {
+            {i 
                 // var info = JSON.parse(data);
                 console.log(data);
 
