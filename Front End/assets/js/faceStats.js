@@ -85,7 +85,7 @@ $(document).on('change', '#file', function()
                     {
                         
                         // Show formatted JSON on webpage.
-                        var results = JSON.parse(data);
+                        var results = JSON.stringify(data);
                         console.log(results[0]['faceAttributes']['gender']);
                         
                     
