@@ -1,10 +1,8 @@
 $(document).on('change', '#file', function()
 {
-    var property = document.getElementById("file"); //Get the file
+    var property = document.getElementById("file").files[0]; //Get the file
    
-    console.log(property);
-    var form_data = new FormData(property.files[0]);
-
+    
         $.ajax
         ({
             url: "././upload.php",

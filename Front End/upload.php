@@ -1,10 +1,10 @@
 <?php
 
 
-$data['file'] = $_FILES;
+// $data['file'] = $_FILES;
 
-echo json_encode($data);
+// echo json_encode($data);
 
     
   
-    
+    echo "It works ";
