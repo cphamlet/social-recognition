@@ -88,8 +88,13 @@ $(document).on('change', '#file', function()
                         // Show formatted JSON on webpage.
                         console.log(data[0]);
 
+                        function jsUcfirst(string) 
+                        {
+                            return string.charAt(0).toUpperCase() + string.slice(1);
+                        }
 
-                        $("#sex").text(data[0]['faceAttributes'].gender);
+                        var uppercaseFirstLetter = string.charAt(0).toUpperCase();
+                        $("#sex").text(jsUCfirst(data[0]['faceAttributes'].gender));
                         $("#age").text(data[0]['faceAttributes'].age);
                         $("#glasses").text(data[0]['faceAttributes'].glasses);
                         
