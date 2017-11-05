@@ -16,7 +16,7 @@ function sendResults(resultsObj) {
 		console.log(resultsObj["results"][i]);
 		scoreTemp = resultsObj["results"][i]["score"];
 		scoreTemp = 1 - scoreTemp;
-		scoreTemp = Math.round(scoreTemp * 100) / 100;
+		scoreTemp = Math.round(scoreTemp * 100);
 
 		var image = resultsObj["results"][i]["pic_url"];
 		var name = "Name: " + resultsObj["results"][i]["name"];
