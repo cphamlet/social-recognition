@@ -17,7 +17,7 @@ $(document).on('change', '#file', function()
     }
     else
     {
-        console.log("Error fucker!");
+        console.log(property);
         //Make a formdata object and add the file to it
         var form_data = new FormData();
         form_data.append("file", property);
