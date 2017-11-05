@@ -1,8 +1,9 @@
 $(document).on('change', '#file', function()
 {
     var property = document.getElementById("file").files[0]; //Get the file
- 
-    var form_data = new FormData(property[0]);
+   
+    console.log(property);
+    var form_data = new FormData(property);
         $.ajax
         ({
             url: "././upload.php",
@@ -21,6 +22,6 @@ $(document).on('change', '#file', function()
             
         })
 
-    }
+    
 
 });
