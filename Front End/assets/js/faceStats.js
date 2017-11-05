@@ -10,12 +10,14 @@ $(document).on('change', '#file', function()
 
     //Check for image size not over 2 megs
     var image_size = property.size;
-    if(image > 2000000)
+    console.log(image_size);
+    if(image_size > 20000000) 
     {
         alert("Image File Size is to big");
     }
     else
     {
+        console.log("Error fucker!");
         //Make a formdata object and add the file to it
         var form_data = new FormData();
         form_data.append("file", property);
