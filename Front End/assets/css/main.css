@@ -1340,13 +1340,7 @@
 /* Main */
 
 	#main {
-		-moz-flex-grow: 1;
-		-webkit-flex-grow: 1;
-		-ms-flex-grow: 1;
 		flex-grow: 1;
-		-moz-flex-shrink: 1;
-		-webkit-flex-shrink: 1;
-		-ms-flex-shrink: 1;
 		flex-shrink: 1;
 		display: flex;
 		align-items: center;
@@ -1448,15 +1442,21 @@
 		}
 
 /* Upload Box */
-	.box-inputs {
-		background-color: black;
-		outline: 2px dashed black;
+	.box {
+		/*background-color: #0f1215;*/
+		background-color: rgba(0, 0, 0, .3);
+		outline: 2px dashed white;
 		outline-offset: -10px;
 		display: inline;
-		margin: 10 10 10 10;
+		transition: background-color 1s, outline-offset .5s, outline .2s;
 	}
-	.box-inputs: hover{
-		background-color: darkgrey;
+	.box:hover {
+		background-color: rgba(256, 256, 256, .2);
+		outline-offset: 0px;
+		outline: 0px dashed white;
+	}
+	.input-text {
+		margin: 10;
 	}
 
 /* Footer */

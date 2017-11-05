@@ -28,21 +28,27 @@
 			</header>
 
 			<div id="main">
-				<!-- <form class="box" method="post" action="" enctype="multipart/form-data">
-					<div class="box__input">
-						<svg class="box__icon" width="50" height="43" viewBox="0 0 50 43" src="../images/upload icon.svg"></svg>
-					    <input class="box__file" type="file" name="files[]" id="file" data-multiple-caption="{count} files selected" multiple />
-					    <label for="file"><strong>Choose a file</strong><span class="box__dragndrop"> or drag it here</span>.</label>
-					    <button class="box__button" type="submit">Upload</button>
+				<form class="box" enctype="multipart/form-data">
+					<div class="box-inputs">
+						<!-- <img class="upload-image" src="assets/images/upload icon white.png"> -->
+					    <input class="box-file" type="file" name="file" id="file" data-multiple-caption="{count} files selected" multiple />
+					    <label for="file"><strong>Choose a file</strong><span class="box__dragndrop"> and click Upload</span>.</label>
+					    <button onclick="upload()" class="box-button" type="submit">Upload</button>
 					</div>
-				</form> -->
-				<div class="box-inputs">
-					<!-- <svg class="box-icon" width="60" height="60" viewBox="0 0 60 60" src="assets/images/upload icon2.svg"></svg> -->
-					<img src="assets/images/upload icon.png">
-					<p>
+				</form>
+				<!-- <title>Is this a picture of Obama?</title>
+				    <h1>Upload a picture and see if it's a picture of Obama!</h1>
+				    <form method="POST" enctype="multipart/form-data">
+				      	<input type="file" name="file">
+				      	<input type="submit" value="Upload">
+				    </form> -->
+				<!-- <div class="box-inputs">
+					<svg class="box-icon" width="60" height="60" viewBox="0 0 60 60" src="assets/images/upload icon2.svg"></svg>
+					<img src="assets/images/upload icon white.png">
+					<p class="input-text">
 						Please upload a picture of the face of the criminal
 					</p>
-				</div>
+				</div> -->
 			</div>
 		</div>
 
