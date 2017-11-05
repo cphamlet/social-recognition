@@ -93,10 +93,18 @@ $(document).on('change', '#file', function()
                             return string.charAt(0).toUpperCase() + string.slice(1);
                         }
 
+
+
                       
                         $("#sex").text("Gender: " + jsUcfirst(data[0]['faceAttributes'].gender));
-                        $("#age").text("Age: " + data[0]['faceAttributes'].age);
-                        $("#glasses").text("Glasses: " + data[0]['faceAttributes'].glasses);
+                        $("#age").text("Age: " + Math.round(data[0]['faceAttributes'].age));
+
+
+                        if($("#glasses").text() == "NoGlasses")
+                        {
+                            $("#glasses").text("Glasses: " + 'No Glasses');
+                        }
+                       
                         
                         
 
