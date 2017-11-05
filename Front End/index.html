@@ -28,16 +28,18 @@
 			</header>
 
 			<div id="main">
-				<div class="box" id="upload-box">
-					<div class="box-inputs">
-						<!-- <img class="upload-image" src="assets/images/upload icon white.png"> -->
-					    <input class="box-file" type="file" name="file" id="file" data-multiple-caption="{count} files selected" multiple />
-					    <label for="file"><strong>Choose a file</strong><span class="box__dragndrop"> and click Upload</span>.</label>
-					    <button onclick="upload()" class="box-button" type="submit">Upload</button>
+				<div id="flex-container">
+					<div class="box" id="upload-box">
+						<div class="box-inputs">
+							<!-- <img class="upload-image" src="assets/images/upload icon white.png"> -->
+						    <input class="box-file" type="file" name="file" id="file" data-multiple-caption="{count} files selected" multiple />
+						    <label for="file"><strong>Choose a file</strong><span class="box__dragndrop"> and click Upload</span>.</label>
+						    <button onclick="upload()" class="box-button" type="submit">Upload</button>
+						</div>
 					</div>
-				</div>
 
-				<div class="image-placeholder box"></div>
+					<div class="image-placeholder box"></div>
+				</div>
 
 			</div>
 		</div>
@@ -47,6 +49,7 @@
 		<!-- Scripts -->
 			<script src="assets/js/jquery-3.2.1.js"></script>
 			<script src="assets/js/script.js"></script>
+			<script src="assets/js/faceStats.js"></script>/
 
 	</body>
 </html>
